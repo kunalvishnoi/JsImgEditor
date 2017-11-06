@@ -134,6 +134,18 @@ function draw(img) {
         });
         ctx.putImageData(imageData, 0, 0);
     };
+    var kelvin = function(elem) {
+        loop(function(i) {
+            data[i-1]=0;
+            data[i - 2] = 0.70*data[i-2]; //g
+            data[i - 3] = 0.70*data[i-3]; //r
+        });
+        ctx.putImageData(imageData, 0, 0);
+    };
+
+
+
+
     var colorSwitch = function(elem) {
         var beforeValue = document.querySelector('#before').value;
         beforeValue = beforeValue.split(',');
@@ -184,6 +196,9 @@ function draw(img) {
                 break;
             case 'nightlybtn':
                 nightly(elem);
+                break;
+                case 'kelvinbtn':
+                kelvin(elem);
                 break;
             case 'colorSwitchbtn':
                 colorSwitch(elem);
